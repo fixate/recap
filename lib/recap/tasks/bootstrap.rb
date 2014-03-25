@@ -26,7 +26,7 @@ module Recap::Tasks::Bootstrap
     task :application do
       # If the account doesn't already exist on the server, the task creates it.
       if exit_code("id #{application_user}").strip != "0"
-        sudo "useradd #{application_user} -d #{application_home}"
+        sudo "useradd #{application_user} -d #{application_home} -m"
       end
 
       # If the home directory doesn't exist, or isn't both readable and writable by members of the application
